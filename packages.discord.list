@@ -1,0 +1,7 @@
+# the main course
+discord
+
+# from chaotic-aur: a way to sanely-ish install BetterDiscord, which unlike
+# OpenASAR, requires access to the homedir (and will constantly be overwritten
+# by Discord upgrades)
+betterdiscordctl

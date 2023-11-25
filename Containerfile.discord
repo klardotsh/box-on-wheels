@@ -1,0 +1,14 @@
+FROM oci.klar.sh/bow-base:latest
+
+COPY --chmod=0755 discord-wrapper.sh /usr/local/bin/discord
+COPY packages.discord.list /etc/distroboxen.packages.discord.list
+
+# Filter out comments and empty lines from package list and install
+RUN pacman --noconfirm -Syyuu --needed \
+		$(grep -vE '(^#|^\s*$)' /etc/distroboxen.packages.discord.list) && \
+	yes | LC_ALL=en_US.UTF-8 pacman -Scc
+
+# A better (lighter, faster...) renderer for the Electron process.
+RUN curl -L \
+		-o /opt/discord/resources/app.asar \
+		https://github.com/GooseMod/OpenAsar/releases/download/nightly/app.asar

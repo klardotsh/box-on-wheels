@@ -1,0 +1,7 @@
+# my typical terminal of choice; I enjoy home/end keys working
+foot-terminfo
+
+# there's nothing we'll install that doesn't require audio somehow
+alsa-lib
+libpipewire
+pipewire-pulse
