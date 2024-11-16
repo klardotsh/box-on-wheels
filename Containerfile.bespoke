@@ -1,0 +1,12 @@
+FROM oci.klar.sh/bow-base:latest
+
+COPY packages.bespoke.list /etc/distroboxen.packages.bespoke.list
+
+# Filter out comments and empty lines from package list and install
+RUN pacman --noconfirm -Syyuu --needed \
+		$(grep -vE '(^#|^\s*$)' /etc/distroboxen.packages.bespoke.list) && \
+	yes | LC_ALL=en_US.UTF-8 pacman -Scc
+
+# TODO: I have licenses for these from years and years ago, may as well bundle them in.
+# https://uhe-dl.b-cdn.net/releases/Hive_211_12092_Linux.tar.xz
+# https://uhe-dl.b-cdn.net/releases/Diva_146_15017_Linux.tar.xz

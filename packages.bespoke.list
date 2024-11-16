@@ -1,0 +1,14 @@
+# the main course
+bespokesynth
+
+# instruments
+# TODO: both Tytel synths are broken in one way or another:
+# - helm isn't in chaotic-aur
+# - vital has broken checksum
+#helm-synth
+#vital-synth
+iempluginsuite
+surge-xt
+
+# aux
+pipewire-jack
